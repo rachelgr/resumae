@@ -150,7 +150,7 @@
     .container {
       position: fixed;
       top: 50%;
-      left: 50%;
+      left: 80%;
       -webkit-transform: translate(-50%, -50%);
     }
     input {
@@ -167,10 +167,12 @@
     textarea {
       background-color: #070F24;
       border: 1px solid #EAD3D8;
-      color: #00101E;
+      color: #EAD3D8;
       padding: 0.5em;
-      width: 100%;
+      width: 300px;
+      height: 300px;
       -webkit-transition: all 0.35s ease-in;
+      font-size: 15px;
     }
     input:active, input:focus, textarea:active, textarea:focus {
       outline: 1px solid #48788B;
@@ -224,10 +226,79 @@
       color: #00101E;
       padding: 1em;
     }
+  {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .main-content{
+    width: 60%;
+    float: left;
+    background: #fefcb3;
+    height: 100%;
+  }
+  .aside{
+    width: 40%;
+    float: left;
+    height: 100%;  
+  }
+
+  .profile{
+    margin: auto;
+/*    margin-top: 10%;
+*/    margin-left: 10%;
+    width: 80%;
+    box-shadow: 10px 10px 5px #888888;
+  }
+
+  .logo{
+    margin: auto;
+  }
+
+  .header{
+    margin-left: 10%;
+  }
+
+  .social-icon {
+
+    width: 72px;
+    height: 72px;
+    display: -webkit-flex; /* Safari */
+    -webkit-flex-direction: column; /* Safari 6.1+ */
+    display: flex;
+    flex-direction: column;
+  }
+
+.wrapper, html, body{
+  height: 100%;
+}
   </style>
 </head>
+
+<div class = "main-content">
+  <img src = "img/logo.png" img class = "image logo" alt = "Rachel Groberman | Class of 2020">
+  <img src="img/rachel.JPG" img class="image profile" alt="Rachel" style="width:500px;">
+
+  <div class = "social-icon" style="width:72px; margin:-350 auto;margin-left:650;">
+    <a href="https://www.linkedin.com/in/rachelgroberman/" target="_blank">
+      <img src = "img/linkedin.png" alt = "linkedin"> 
+    </a>
+    </br>
+    <a href="mailto:rachelgr@mit.edu">
+      <img src = "img/mail.png"  alt = "mail"> 
+    </a>
+    </br>
+    <a href="https://www.facebook.com/rachel.ng.31586526" target="_blank">
+      <img src = "img/facebook.png" alt = "facebook">
+    </a>
+  </div>
+
+</div>
+
+<div class = "aside">
 <body>
   <div class="container">
+
     <input id="speech" type="text">
     <button id="rec" class="btn">Speak</button>
     <div id="spokenResponse" class="spoken-response">
@@ -236,13 +307,18 @@
   </div>
   <div class="debug">
     <div class="debug__btn btn">
-      Debug JSON results
+      About Resumae
     </div>
     <div class="debug__content">
-      <textarea id="response" cols="40" rows="20"></textarea>
+      <textarea id="response" cols="40" rows="20">
+        Resumae is an AI Bot I designed to act as a cooler resume. Resumae was made using api.ai and hours of work. Hope you enjoy! 
+      </textarea>
     </div>
   </div>
 
+
+
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
 </body>
+</div>
 </html>
