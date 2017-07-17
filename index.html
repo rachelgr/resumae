@@ -24,7 +24,9 @@
           send();
         }
       });
+
       $recBtn.on("click", function(event) {
+        send();
         switchRecognition();
       });
       $(".debug__btn").on("click", function() {
@@ -114,10 +116,6 @@
       debugRespond(debugJSON);
     }
 
-    function debugRespond(val) {
-      $("#response").text(val);
-    }
-
     function respond(val) {
       if (val == "") {
         val = messageSorry;
@@ -170,9 +168,10 @@
       color: #EAD3D8;
       padding: 0.5em;
       width: 300px;
-      height: 100px;
+      height: 200px;
       -webkit-transition: all 0.35s ease-in;
       font-size: 15px;
+      text-align: left;
     }
     input:active, input:focus, textarea:active, textarea:focus {
       outline: 1px solid #48788B;
@@ -269,6 +268,90 @@
     flex-direction: column;
   }
 
+  .social-icon:hover .img-top{
+    display: inline;
+  }
+/*  .question{
+    width: 32px;
+    margin:auto;
+    margin-left: 102%;
+  }*/
+
+  .help-tip{
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    text-align: center;
+    background-color: #819daf;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 26px;
+    cursor: default;
+    border: 1px solid white;
+
+}
+
+.help-tip:before{
+    content:'?';
+    font-weight: bold;
+    color:#black;
+}
+
+.help-tip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{    /* The tooltip */
+    display: none;
+    text-align: center;
+    background-color: #090D1B;
+    padding: 20px;
+    width: 450px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: 15px;
+    top: -300px;
+    color: #FFF;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+    width:100%;
+    height:40px;
+    content:'';
+    position: absolute;
+    top:-40px;
+    left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+    0% { 
+        opacity:0; 
+        transform: scale(0.6);
+    }
+
+    100% {
+        opacity:100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+
 .wrapper, html, body{
   height: 100%;
 }
@@ -279,17 +362,17 @@
   <img src = "img/logo.png" img class = "image logo" alt = "Rachel Groberman | Class of 2020">
   <img src="img/rachel.JPG" img class="image profile" alt="Rachel" style="width:500px;">
 
-  <div class = "social-icon" style="width:72px; margin:-350 auto;margin-left:650;">
+  <div class = "social-icon" style="width:72px; margin:-350 auto;margin-left:650;"> 
     <a href="https://www.linkedin.com/in/rachelgroberman/" target="_blank">
-      <img src = "img/linkedin.png" alt = "linkedin"> 
+      <img src="img/linkedin.png" onmouseover="this.src='img/lbright.png';"onmouseout="this.src='img/linkedin.png';"/>
     </a>
     </br>
     <a href="mailto:rachelgr@mit.edu">
-      <img src = "img/mail.png"  alt = "mail"> 
+      <img src="img/mail.png" onmouseover="this.src='img/maildark.png';"onmouseout="this.src='img/mail.png';"/>
     </a>
     </br>
     <a href="https://www.facebook.com/rachel.ng.31586526" target="_blank">
-      <img src = "img/facebook.png" alt = "facebook">
+      <img src="img/facebook.png" onmouseover="this.src='img/flight.png';"onmouseout="this.src='img/facebook.png';"/>
     </a>
   </div>
 
@@ -298,7 +381,9 @@
 <div class = "aside">
 <body>
   <div class="container">
-
+    <div class="help-tip">
+    <p>What are some things you can ask Resumae? Try inputting the following queries: <br><br> Who is Rachel? <br> What does she do in her free time? <br> What are her past work experiences? <br><br> For more information about how Resumae was built checkout the "About Resumae" button</p>
+  </div>
     <input id="speech" type="text">
     <button id="rec" class="btn">Speak</button>
     <div id="spokenResponse" class="spoken-response">
@@ -310,8 +395,7 @@
       About Resumae
     </div>
     <div class="debug__content">
-      <textarea id="response" cols="40" rows="20">
-        Resumae is an AI Bot I designed to act as a cooler resume. Resumae was made using api.ai and hours of work. Hope you enjoy! 
+      <textarea id="response" cols="40" rows="20">Resumae is my take on a personal website. I am fascinated by AI and the potential of AI bots and wanted to try out making my own. Resumae is powered by api.ai and was built using Javascript, HTML, and CSS. Like its creator, Resumae runs on tea and ice cream. Feel free to contact me through Linkedin or email with any questions or concerns. Thanks so much :) 
       </textarea>
     </div>
   </div>
